@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import ReactMapboxGl from 'react-mapbox-gl';
+
+const Mapbox = ReactMapboxGl({
+});
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        App
-      </div>
+      <Mapbox />
     );
   }
 }

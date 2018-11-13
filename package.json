@@ -9,6 +9,7 @@
     "react-scripts": "2.1.1"
   },
   "scripts": {
+    "scrapeOSMData": "node -r esm ./scrapeOSMData.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -22,5 +23,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "esm": "^3.0.84",
+    "request": "^2.88.0"
+  }
 }

@@ -10,5 +10,5 @@ const geoBoundingBox = '-71.1123,42.3526,-71.0786,42.3672';
 
 fetchRawGeoJSON({
   geoBoundingBox,
-  outputFilePath: __dirname + '/rawGeo.json',
+  outputFilePath: __dirname + '/../public/rawGeo.json',
 });

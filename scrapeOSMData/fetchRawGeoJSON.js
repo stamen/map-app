@@ -25,7 +25,7 @@ export const fetchRawGeoJSON = options =>
       const geo = osmtogeojson(dom);
       const json = JSON.stringify(geo);
 
-      fs.writeFileSync(outputFilePath, json);
+      fs.writeFile(outputFilePath, json, err => err ? reject(err) : resolve());
 
       resolve();
     });

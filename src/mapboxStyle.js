@@ -1,40 +1,22 @@
+const layers = [];
+
+const add = layer => {
+  layer.source = 'campus';
+  layers.push(layer);
+};
+
 // Colors loosely based on https://whereis.mit.edu/
-const background = {
+add({
   id: 'background',
   type: 'background',
   paint: {
     'background-color': '#fcf9f0'
   }
-};
+});
 
-const roads = {
-  id: 'roads',
-  type: 'line',
-  source: 'campus',
-  filter: [
-    'all',
-    [ '==', '$type', 'LineString' ],
-  ],
-  paint: {
-    'line-color': '#dfb5b7'
-  }
-};
-
-const buildings = {
-  id: 'buildings',
-  type: 'fill',
-  source: 'campus',
-  filter: [ 'has', 'building' ],
-  paint: {
-    'fill-color': '#fcecae',
-    'fill-outline-color': '#c2b37b'
-  }
-};
-
-const grass = {
+add({
   id: 'grass',
   type: 'fill',
-  source: 'campus',
   filter: [
     'any',
     [ '==', 'landuse', 'grass' ],
@@ -49,12 +31,11 @@ const grass = {
   paint: {
     'fill-color': '#d0e9bd',
   }
-};
+});
 
-const sports = {
+add({
   id: 'sports',
   type: 'fill',
-  source: 'campus',
   filter: [
     'any',
     [ '==', 'leisure', 'pitch' ],
@@ -63,7 +44,29 @@ const sports = {
   paint: {
     'fill-color': '#cbddab'
   }
-};
+});
+
+add({
+  id: 'buildings',
+  type: 'fill',
+  filter: [ 'has', 'building' ],
+  paint: {
+    'fill-color': '#fcecae',
+    'fill-outline-color': '#c2b37b'
+  }
+});
+
+add({
+  id: 'roads',
+  type: 'line',
+  filter: [
+    'all',
+    [ '==', '$type', 'LineString' ],
+  ],
+  paint: {
+    'line-color': '#dfb5b7'
+  }
+});
 
 export const mapboxStyle = {
   version: 8,
@@ -73,11 +76,5 @@ export const mapboxStyle = {
       type: 'geojson'
     }
   },
-  layers: [
-    background,
-    grass,
-    sports,
-    buildings,
-    roads,
-  ]
+  layers
 };

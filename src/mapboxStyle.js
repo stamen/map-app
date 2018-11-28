@@ -72,8 +72,8 @@ export const mapboxStyle = {
   version: 8,
   sources: {
     campus: {
-      data: 'rawGeo.json',
-      type: 'geojson'
+      data: "campus.json",
+      type: "geojson"
     }
   },
   layers
